@@ -1,0 +1,17 @@
+.cards {
+  display: flex;
+  justify-content: space-between;
+}
+.cards__item {
+  width: 30%;
+  position: relative;
+  &:after {
+    content: url("../img/why/circles.svg");
+    position: absolute;
+    left: 96%;
+    top: 23%;
+  }
+  &:last-child::after {
+    display: none;
+  }
+}

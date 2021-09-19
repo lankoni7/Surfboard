@@ -1,0 +1,11 @@
+.contacts {
+  text-decoration: none;
+  font-size: 22px;
+  line-height: 0.81;
+  color: #fff;
+
+  &::before {
+    content: url("../../img/hero/phone.svg");
+    margin-right: 5px;
+  }
+}

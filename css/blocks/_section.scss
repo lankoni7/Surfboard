@@ -1,0 +1,10 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 652px;
+  height: 100vh;
+  &_color-white {
+    color: #fff;
+  }
+}

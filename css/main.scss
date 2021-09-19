@@ -1,0 +1,31 @@
+$colorGrey: #666;
+$yellow: #ffd517;
+// Colors
+
+$baseFont: 18px;
+// Font
+
+$z-index-menu: 500;
+// Z-index
+
+@import "layout/normalize.css";
+@import "layout/_base.scss";
+
+@import "blocks/_hero.scss";
+@import "blocks/_section.scss";
+@import "blocks/_button.scss";
+@import "blocks/_header.scss";
+@import "blocks/_menu.scss";
+@import "blocks/_contacts.scss";
+@import "blocks/_descriptions.scss";
+@import "blocks/_description.scss";
+@import "blocks/_why.scss";
+@import "blocks/_title.scss";
+@import "blocks/_cards.scss";
+@import "blocks/_card.scss";
+@import "blocks/_review.scss";
+@import "blocks/_avatars.scss";
+@import "blocks/_section-order.scss";
+@import "blocks/_form.scss";
+@import "blocks/_radio.scss";
+@import "blocks/_fixed-menu.scss";

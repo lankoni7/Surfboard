@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Alegreya Sans", sans-serif;
+  color: #000;
+  font-size: $baseFont;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: normal;
+}
+p {
+  margin: 0;
+}
+a {
+  cursor: pointer;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+button {
+  border: none;
+  cursor: pointer;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.container {
+  margin: 0 auto;
+  max-width: 85%;
+  width: 100%;
+}
+
+.wrapper__content {
+  flex: 1;
+}

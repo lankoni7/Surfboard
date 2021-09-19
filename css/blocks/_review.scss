@@ -1,0 +1,35 @@
+.review {
+  display: flex;
+  min-height: 348px;
+  padding: 40px 125px 40px 40px;
+  background: #f8faf9;
+  margin-bottom: 12px;
+}
+.review__avatar {
+  flex-shrink: 0;
+  margin-right: 40px;
+}
+
+.review__content {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 0;
+}
+
+.review__subtitle {
+  font-size: 27px;
+  line-height: 1.18;
+  font-weight: 700;
+  margin-bottom: 17px;
+}
+.review__txt {
+  color: $colorGrey;
+  font-size: 18px;
+  line-height: 1.2;
+  margin-bottom: 28px;
+}
+
+.review__name {
+  font-size: 18px;
+  line-height: 1.33;
+}

@@ -1,0 +1,12 @@
+.menu {
+  flex-basis: 638px;
+}
+.menu__list {
+  display: flex;
+  justify-content: space-between;
+}
+.menu__link {
+  text-decoration: none;
+  line-height: 1.1;
+  color: #fff;
+}

@@ -1,0 +1,13 @@
+.description {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.description__img {
+  margin-right: 14px;
+}
+
+.description__txt {
+  max-width: 90px;
+  font-size: 16px;
+}
