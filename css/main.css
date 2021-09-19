@@ -160,7 +160,7 @@ button {
   color: #fff;
 }
 .contacts::before {
-  content: url("../../img/hero/phone.svg");
+  content: url("../img/hero/phone.svg");
   margin-right: 5px;
 }
 
