@@ -1,12 +1,18 @@
 .menu {
-  flex-basis: 638px;
-}
-.menu__list {
-  display: flex;
-  justify-content: space-between;
-}
-.menu__link {
-  text-decoration: none;
-  line-height: 1.1;
-  color: #fff;
+  margin: 0 0.5rem;
+  @include tablet {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+    // justify-content: space-between;
+    column-gap: 1.22rem;
+    flex-wrap: wrap;
+  }
+  &__link {
+    text-decoration: none;
+    line-height: 1.6;
+    color: #fff;
+  }
 }

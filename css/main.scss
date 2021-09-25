@@ -1,31 +1,28 @@
-$colorGrey: #666;
-$yellow: #ffd517;
-// Colors
-
-$baseFont: 18px;
-// Font
-
-$z-index-menu: 500;
-// Z-index
-
+@import "_variables";
+@import "_media";
 @import "layout/normalize.css";
-@import "layout/_base.scss";
+@import "layout/_base";
 
-@import "blocks/_hero.scss";
-@import "blocks/_section.scss";
-@import "blocks/_button.scss";
-@import "blocks/_header.scss";
-@import "blocks/_menu.scss";
-@import "blocks/_contacts.scss";
-@import "blocks/_descriptions.scss";
-@import "blocks/_description.scss";
-@import "blocks/_why.scss";
-@import "blocks/_title.scss";
-@import "blocks/_cards.scss";
-@import "blocks/_card.scss";
-@import "blocks/_review.scss";
-@import "blocks/_avatars.scss";
-@import "blocks/_section-order.scss";
-@import "blocks/_form.scss";
-@import "blocks/_radio.scss";
-@import "blocks/_fixed-menu.scss";
+@import "blocks/_hero";
+@import "blocks/_section";
+@import "blocks/_button";
+@import "blocks/_header";
+@import "blocks/_menu";
+@import "blocks/_address";
+@import "blocks/_contacts";
+@import "blocks/_descriptions";
+@import "blocks/_description";
+@import "blocks/_section-why";
+@import "blocks/_title";
+@import "blocks/_cards";
+@import "blocks/_card";
+@import "blocks/_review";
+@import "blocks/_avatars";
+@import "blocks/_section-order";
+@import "blocks/_form";
+@import "blocks/_radio";
+@import "blocks/_fixed-menu";
+@import "blocks/_map";
+@import "blocks/_hamburger";
+@import "blocks/_footer";
+@import "blocks/_social";

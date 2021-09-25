@@ -2,28 +2,55 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-}
-.card__head {
-  width: 128px;
-  height: 128px;
-  background-color: #f2f5f4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  margin-bottom: 20px;
-}
+  @include phone {
+    flex-direction: row;
+    width: 100%;
+    column-gap: 0.66rem;
+  }
 
-.card__title {
-  font-size: 27px;
-  line-height: 1.18;
-  font-weight: 700;
-  margin-bottom: 25px;
-}
-.card__txt {
-  font-size: 18px;
-  line-height: 1.16;
-  font-weight: 300;
-  color: $colorGrey;
+  &__head {
+    width: 128px;
+    height: 128px;
+    background-color: #f2f5f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-bottom: 1.11rem;
+    flex-shrink: 0;
+    @include phone {
+      margin-bottom: 0;
+    }
+  }
+
+  &__main {
+    text-align: center;
+    width: 100%;
+    @include phone {
+      text-align: start;
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    line-height: 1.18;
+    font-weight: 700;
+    margin-bottom: 1.38rem;
+    @include tablet {
+      margin-bottom: 0.7rem;
+    }
+  }
+  &__txt {
+    line-height: 1.16;
+    font-weight: 300;
+    color: $colorGrey;
+
+    @include tablet {
+      text-align: center;
+    }
+    @include phone {
+      text-align: start;
+      padding-right: 2rem;
+    }
+  }
 }

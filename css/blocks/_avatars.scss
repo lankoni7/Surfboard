@@ -1,24 +1,27 @@
-.avatars__list {
-  display: flex;
-  justify-content: center;
-  column-gap: 6px;
-}
-.avatars__item {
-  width: 74px;
-  height: 74px;
-  &:hover .avatars__img {
-    cursor: pointer;
+.avatars {
+  margin-bottom: 1rem;
+  &__list {
+    display: flex;
+    justify-content: center;
+    column-gap: 0.33rem;
   }
-  &_active .avatars__img {
-    border: 6px solid #fedb3f;
+  &__item {
+    width: 4.11rem;
+    height: 4.11rem;
+    &:hover .avatars__img {
+      cursor: pointer;
+    }
+    &_active .avatars__img {
+      border: 6px solid $colorYellow;
+    }
   }
-}
 
-.avatars__img {
-  border-radius: 50%;
-  border: 6px solid transparent;
-  transition: all 0.3s;
-  &:hover {
-    border: 6px solid #fedb3f;
+  &__img {
+    border-radius: 50%;
+    border: 6px solid transparent;
+    transition: all 0.3s;
+    &:hover {
+      border: 6px solid $colorYellow;
+    }
   }
 }

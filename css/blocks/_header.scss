@@ -2,5 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 85px;
+  min-height: 4.72rem;
+
+  @include tablet {
+    background: #1968b1;
+    padding: 0 4%;
+  }
+  @include phone {
+    padding: 0 2%;
+  }
 }

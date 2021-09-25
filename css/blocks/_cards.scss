@@ -1,17 +1,25 @@
 .cards {
   display: flex;
   justify-content: space-between;
-}
-.cards__item {
-  width: 30%;
-  position: relative;
-  &:after {
-    content: url("../img/why/circles.svg");
-    position: absolute;
-    left: 96%;
-    top: 23%;
+  @include phone {
+    flex-direction: column;
+    row-gap: 2.1rem;
   }
-  &:last-child::after {
-    display: none;
+
+  &__item {
+    width: 30%;
+    position: relative;
+    &:after {
+      content: url("../img/why/circles.svg");
+      position: absolute;
+      left: 96%;
+      top: 23%;
+      @include tablet {
+        display: none;
+      }
+    }
+    &:last-child::after {
+      display: none;
+    }
   }
 }

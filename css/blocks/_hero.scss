@@ -1,36 +1,81 @@
 .hero {
-  background: url("../img/hero/background.png");
+  background: url("../img/hero/background.png") center center;
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-  min-height: 652px;
+  min-height: 36.22rem;
   color: #fff;
   padding-bottom: 6%;
-}
-.hero__container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+  position: relative;
 
-.hero__content {
-  width: 50%;
-}
-.hero__title {
-  font-size: 48px;
-  line-height: 1.18;
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
+  @include tablet {
+    background-position: right 20% center;
+    padding: 0;
+  }
 
-.hero__txt {
-  font-size: 21px;
-  line-height: 1.2;
-  margin-bottom: 40px;
-}
+  &__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include tablet {
+      max-width: 100%;
+    }
+  }
 
-.hero__icons {
-  width: 52%;
+  &__content {
+    width: 50%;
+    @include tablet {
+      width: 100%;
+      height: 100%;
+      padding: 0 1rem;
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    @include phone {
+      padding: 0;
+    }
+  }
+  &__title {
+    font-size: 2.66rem;
+    line-height: 1.18;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 4.2%;
+
+    @include tablet {
+      margin-bottom: 0.7rem;
+    }
+    @include phone {
+      font-size: 2.22rem;
+      line-height: 0.9em;
+      margin-bottom: 0.7rem;
+      word-break: break-word;
+    }
+  }
+
+  &__txt {
+    font-size: 1.16rem;
+    line-height: 1.2;
+    margin-bottom: 8.5%;
+    @include tablet {
+      margin-bottom: 2.5rem;
+    }
+    @include phone {
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  &__icons {
+    width: 52%;
+
+    @include tablet {
+      display: none;
+    }
+  }
 }

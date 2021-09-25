@@ -1,12 +1,12 @@
 .button {
-  background: $yellow;
+  background: $colorYellow;
   text-transform: uppercase;
   font-weight: 700;
-  padding: 20px 36px;
+  padding: 1.11rem 2rem;
   border-radius: 100px;
   &_transp {
     background: transparent;
-    padding: 5px 5px;
+    padding: 0.27rem;
     text-transform: none;
     color: #fff;
     font-weight: 400;

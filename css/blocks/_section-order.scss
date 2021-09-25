@@ -1,11 +1,13 @@
 .section-order {
   background: url("../img/order/background1.jpg") center center;
   background-size: cover;
-
   position: relative;
 
   &__title {
-    margin-bottom: 60px;
+    margin-bottom: 3.33rem;
+    @include tablet {
+      margin-bottom: 1.9rem;
+    }
   }
 
   &:before {
@@ -16,10 +18,16 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: rgba(43, 43, 43, 0.4);
+    background: rgba(43, 43, 43, 0.5);
   }
   &__container {
     position: relative;
     z-index: 100;
+    @include tablet {
+      max-width: 466px;
+    }
+    @include phone {
+      max-width: 460px;
+    }
   }
 }

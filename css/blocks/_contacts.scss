@@ -1,11 +1,29 @@
 .contacts {
   text-decoration: none;
-  font-size: 22px;
+  font-size: 1.22rem;
   line-height: 0.81;
   color: #fff;
+  // display: inline-block;
+  flex-shrink: 0;
 
-  &::before {
-    content: url("../img/hero/phone.svg");
-    margin-right: 5px;
+  &_color-black {
+    color: #000;
+  }
+  &_desktop {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__svg {
+    width: 12px;
+    height: 15px;
+    fill: #fff;
+    &_black {
+      fill: #000;
+    }
+  }
+  &__phone {
+    white-space: nowrap;
   }
 }

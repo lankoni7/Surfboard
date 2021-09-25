@@ -1,0 +1,14 @@
+.social {
+  display: flex;
+  column-gap: 14px;
+  &__svg {
+    width: 20px;
+    height: 20px;
+    fill: #b3b3b3;
+    transition: all 0.3s;
+  }
+
+  &__item:hover &__svg {
+    fill: #000;
+  }
+}
