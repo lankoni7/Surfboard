@@ -8,7 +8,7 @@
   column-gap: 2.22rem;
 
   @include tablet {
-    padding: 3rem 1.3rem 2.5rem;
+    padding: 12% 5.1% 10%;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -29,6 +29,7 @@
     @include tablet {
       text-align: center;
       padding: 0;
+      flex-basis: auto;
     }
   }
 
