@@ -5,11 +5,11 @@
   min-height: 36.3rem;
   height: 100vh;
   @include phone {
-    height: auto;
+    height: 130vh;
   }
 
-  @media (max-width: 340px) {
-    height: 145vh;
+  @include phoneS {
+    height: 150vh;
   }
 
   &_color-white {

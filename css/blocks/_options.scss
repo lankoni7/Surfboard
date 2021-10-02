@@ -1,0 +1,31 @@
+.options {
+  width: 5rem;
+  height: 5rem;
+  background-color: #3a587e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 0.38rem;
+  border-radius: 4px;
+  margin-bottom: 3rem;
+  cursor: pointer;
+  @include tablet {
+    display: none;
+  }
+
+  &__svg {
+    width: 2.11rem;
+    height: 2.11rem;
+    fill: #fff;
+  }
+
+  &__title {
+    font-size: 0.77rem;
+    line-height: 1.21em;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+  }
+}

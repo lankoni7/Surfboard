@@ -11,4 +11,7 @@
   @include phone {
     padding: 0 2%;
   }
+  @include phoneS {
+    min-height: 12%;
+  }
 }

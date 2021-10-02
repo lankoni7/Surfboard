@@ -1,15 +1,35 @@
 .hamburger {
-  width: 26px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
   display: none;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+  @include tablet {
+    &_close {
+      transform: rotate(90deg);
+    }
+    &_close &__item {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+      }
+    }
+  }
+
   &__item {
     background: #fff;
     display: block;
-    height: 4px;
+    height: 5px;
     width: 100%;
     border-radius: 6px;
+    transition: all 0.3s;
   }
   @include tablet {
     display: inline-flex;

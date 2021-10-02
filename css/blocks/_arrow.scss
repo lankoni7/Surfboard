@@ -1,0 +1,39 @@
+.arrow {
+  position: absolute;
+  top: 50%;
+  height: 1.5rem;
+
+  @include tablet {
+    top: 30%;
+  }
+
+  &_left {
+    left: -2%;
+    transform: translateY(-50%);
+
+    @include tablet {
+      left: 19%;
+    }
+    @include phone {
+      left: 0;
+    }
+  }
+  &_right {
+    right: -2%;
+    transform: translateY(-50%) rotate(180deg);
+
+    @include tablet {
+      right: 19%;
+    }
+
+    @include phone {
+      right: 0;
+    }
+  }
+
+  &__svg {
+    width: 0.77rem;
+    height: 1.5rem;
+    fill: #fff;
+  }
+}

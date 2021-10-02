@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   min-height: 31%;
-  padding: 2.22rem 7rem 2.22rem 2.22rem;
+  padding: 4.3% 13.3% 4.3% 4.3%;
   background: #f8faf9;
   margin-bottom: 0.66rem;
   column-gap: 2.22rem;
@@ -25,7 +25,7 @@
     flex-direction: column;
     padding: 3.8% 0;
     flex-grow: 1;
-    flex-basis: 16rem;
+    flex-basis: 17rem;
     @include tablet {
       text-align: center;
       padding: 0;

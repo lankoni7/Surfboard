@@ -3,6 +3,12 @@
     @include tablet {
       max-width: 97%;
     }
+    @include phone {
+      margin-bottom: 2rem;
+    }
+    @include phoneS {
+      margin-bottom: 0;
+    }
   }
   &__title {
     margin-bottom: 1.11rem;

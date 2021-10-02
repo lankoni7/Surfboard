@@ -4,6 +4,9 @@
 
 html {
   font-size: $baseFont;
+  @include phoneS {
+    font-size: $baseFont - 2px;
+  }
 }
 html,
 body {
@@ -13,6 +16,7 @@ body {
   margin: 0;
   font-family: "Alegreya Sans", sans-serif;
   color: #000;
+  line-height: 1.22em;
 }
 h1,
 h2,
@@ -32,6 +36,11 @@ a {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
+}
+svg {
+  max-width: 100%;
+  max-height: 100%;
 }
 ul,
 li {

@@ -9,11 +9,13 @@
   position: relative;
 
   @include tablet {
-    background-position: right 20% center;
-    padding: 0;
-  }
-  @include phone {
-    // height: 130vh;
+    background: url(../img/hero/background768.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right 65% center;
+    padding-bottom: 0;
+    min-height: 110vh;
+    overflow: hidden;
   }
 
   &__container {
