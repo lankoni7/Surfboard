@@ -24,11 +24,11 @@
     position: relative;
     z-index: 100;
     @include tablet {
-      max-width: 466px;
+      max-width: 25.8rem;
     }
     @include phone {
       width: 95%;
-      max-width: 460px;
+      max-width: 25.5rem;
     }
   }
 }

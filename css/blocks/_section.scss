@@ -5,11 +5,11 @@
   min-height: 36.3rem;
   height: 100vh;
   @include phone {
-    height: 130vh;
+    height: 110vh;
   }
 
   @include phoneS {
-    height: 150vh;
+    height: 130vh;
   }
 
   &_color-white {

@@ -1,3 +1,12 @@
 .slider {
   position: relative;
+  display: flex;
+  transition: right 0.3s ease-in-out;
+}
+
+.section-slider {
+  position: relative;
+  &__container {
+    overflow: hidden;
+  }
 }

@@ -8,15 +8,15 @@
   }
 
   &__item {
-    margin-bottom: 5px;
-    &_active &__link {
+    margin-bottom: 0.27rem;
+    &_active .fixed-menu__link {
       border-color: #fff;
     }
   }
 
   &__link {
-    width: 16px;
-    height: 16px;
+    width: 0.88rem;
+    height: 0.88rem;
     border-radius: 50%;
     border: 1px solid transparent;
     display: block;
@@ -25,8 +25,8 @@
     &::before {
       content: "";
       display: block;
-      width: 6px;
-      height: 6px;
+      width: 0.33rem;
+      height: 0.33rem;
       border-radius: 50%;
       position: absolute;
       top: 50%;

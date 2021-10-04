@@ -3,7 +3,6 @@
   font-size: 1.22rem;
   line-height: 0.81;
   color: #fff;
-  // display: inline-block;
   flex-shrink: 0;
 
   &_color-black {
@@ -16,8 +15,8 @@
   }
 
   &__svg {
-    width: 12px;
-    height: 15px;
+    width: 0.66rem;
+    height: 0.83rem;
     fill: #fff;
     &_black {
       fill: #000;

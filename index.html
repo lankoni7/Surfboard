@@ -140,13 +140,13 @@
         </section>
         <!-- Slider -->
         <section class="section section-slider">
-          <div class="container">
+          <a href="#" id="left" class="arrow arrow_left">
+            <svg class="arrow__svg">
+              <use xlink:href="img/sprite.svg#arrow"></use>
+            </svg>
+          </a>
+          <div class="container section-slider__container">
             <div class="slider">
-              <a href="#" id="left" class="arrow arrow_left">
-                <svg class="arrow__svg">
-                  <use xlink:href="img/sprite.svg#arrow"></use>
-                </svg>
-              </a>
               <div class="slide">
                 <div class="slide__board">
                   <img
@@ -158,7 +158,7 @@
                     <use xlink:href="img/sprite.svg#blur"></use>
                   </svg>
                 </div>
-                <div class="slide__right">
+                <div class="slide__right-side">
                   <div class="options">
                     <svg class="options__svg">
                       <use xlink:href="img/sprite.svg#arrows"></use>
@@ -195,13 +195,62 @@
                   </div>
                 </div>
               </div>
-              <a href="#" id="right" class="arrow arrow_right">
-                <svg class="arrow__svg">
-                  <use xlink:href="img/sprite.svg#arrow"></use>
-                </svg>
-              </a>
+              <div class="slide">
+                <div class="slide__board">
+                  <img
+                    src="img/slider/surfboard2.png"
+                    alt="Surfboard Longboard 2.0"
+                    class="slide__img"
+                  />
+                  <svg class="slide__svg">
+                    <use xlink:href="img/sprite.svg#blur"></use>
+                  </svg>
+                </div>
+                <div class="slide__right-side">
+                  <div class="options">
+                    <svg class="options__svg">
+                      <use xlink:href="img/sprite.svg#arrows"></use>
+                    </svg>
+                    <p class="options__title">Параметры</p>
+                  </div>
+                  <div class="slide__content">
+                    <h3 class="slide__title">Шортборд</h3>
+                    <div class="slide__txt">
+                      <p>
+                        Самые быстрые доски для профессионалов. Размеры
+                        шортбордов позволяют быстро набирать скорость, делать
+                        различные трюки на волне, включая резкие повороты и
+                        развороты, флоатеры (проезды по самому гребню волны),
+                        различные прыжки с вращениями или без, а также катание в
+                        трубах.
+                      </p>
+                    </div>
+                    <div class="slide__desc">
+                      <div class="slide__desc-item">
+                        <p class="slide__option-head">Длина доски</p>
+                        <span class="slide__option-content">от 1,5 метров</span>
+                      </div>
+                      <div class="slide__desc-item">
+                        <p class="slide__option-head">Ширина доски</p>
+                        <span class="slide__option-content"
+                          >от 30 сантиметров</span
+                        >
+                      </div>
+                    </div>
+                    <div class="slide__order">
+                      <p class="slide__price">12000 ₽</p>
+                      <button class="button">Заказать</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          <a href="#" id="right" class="arrow arrow_right">
+            <svg class="arrow__svg">
+              <use xlink:href="img/sprite.svg#arrow"></use>
+            </svg>
+          </a>
         </section>
         <!-- Review -->
         <section class="section section-review">

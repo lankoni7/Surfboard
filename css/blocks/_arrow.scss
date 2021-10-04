@@ -2,24 +2,25 @@
   position: absolute;
   top: 50%;
   height: 1.5rem;
+  z-index: 300;
 
   @include tablet {
     top: 30%;
   }
 
   &_left {
-    left: -2%;
+    left: 3%;
     transform: translateY(-50%);
 
     @include tablet {
       left: 19%;
     }
     @include phone {
-      left: 0;
+      left: 1%;
     }
   }
   &_right {
-    right: -2%;
+    right: 3%;
     transform: translateY(-50%) rotate(180deg);
 
     @include tablet {
@@ -27,7 +28,7 @@
     }
 
     @include phone {
-      right: 0;
+      right: 1%;
     }
   }
 

@@ -12,16 +12,16 @@
       cursor: pointer;
     }
     &_active .avatars__img {
-      border: 6px solid $colorYellow;
+      border: 0.33rem solid $colorYellow;
     }
   }
 
   &__img {
     border-radius: 50%;
-    border: 6px solid transparent;
+    border: 0.33rem solid transparent;
     transition: all 0.3s;
     &:hover {
-      border: 6px solid $colorYellow;
+      border: 0.33rem solid $colorYellow;
     }
   }
 }
