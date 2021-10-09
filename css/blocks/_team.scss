@@ -1,0 +1,90 @@
+.team {
+  &_desktop {
+    display: flex;
+    justify-content: space-between;
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &_mobile {
+    display: none;
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 0.8rem;
+      min-height: 31rem;
+    }
+  }
+  &_desktop &__content {
+    position: absolute;
+  }
+
+  &__item {
+    max-width: 12.22rem;
+    position: relative;
+
+    &_active .team__name-trangle {
+      transform: rotate(180deg);
+    }
+    &_active .team__content {
+      @include tablet {
+        height: 21rem;
+      }
+    }
+    @include tablet {
+      min-height: 0;
+      position: relative;
+    }
+  }
+  &__photo {
+    margin-bottom: 1.2rem;
+    @include tablet {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__name {
+    font-size: 1.16rem;
+    line-height: 1.2em;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    column-gap: 0.3rem;
+    margin-bottom: 0.4rem;
+    cursor: pointer;
+  }
+  &__name-trangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 4px 0 4px;
+    border-color: #000000 transparent transparent transparent;
+    margin-top: 0.55rem;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &__content {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.5s;
+  }
+
+  &__content-inside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    row-gap: 0.2rem;
+  }
+  &__desc-first {
+    @include tablet {
+      font-weight: 700;
+    }
+  }
+
+  &__desc-second {
+    font-weight: 300;
+  }
+}

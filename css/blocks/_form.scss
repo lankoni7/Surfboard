@@ -33,9 +33,23 @@
     @include tablet {
       padding: 0.44rem 0.55rem;
     }
+    &::placeholder {
+      color: #666;
+    }
     &:focus {
       border-color: $colorYellow;
     }
+    &_error {
+      border: 3px solid red;
+      &:focus {
+        border-color: red;
+      }
+      &::placeholder {
+        color: red;
+        font-size: 1vw;
+      }
+    }
+
     &_textarea {
       height: 8.44rem;
       resize: none;

@@ -1,16 +1,35 @@
-.review {
-  display: flex;
-  flex-wrap: wrap;
-  min-height: 31%;
-  padding: 4.3% 13.3% 4.3% 4.3%;
+.reviews {
+  position: relative;
+  min-height: 16rem;
   background: #f8faf9;
-  margin-bottom: 0.66rem;
-  column-gap: 2.22rem;
 
-  @include tablet {
-    padding: 12% 5.1% 10%;
-    flex-wrap: wrap;
-    justify-content: center;
+  margin-bottom: 0.66rem;
+  &__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    opacity: 0;
+    display: flex;
+    padding: 4.3% 13.3% 4.3% 4.3%;
+    // flex-wrap: wrap;
+
+    column-gap: 2.22rem;
+    transition: all 0.3s;
+
+    &_active {
+      position: static;
+      opacity: 1;
+      pointer-events: unset;
+    }
+
+    @include tablet {
+      padding: 12% 5.1% 10%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
   &__avatar {
     flex-shrink: 0;
@@ -23,13 +42,11 @@
   &__content {
     display: flex;
     flex-direction: column;
-    padding: 3.8% 0;
+    // padding: 3.8% 0;
     flex-grow: 1;
-    flex-basis: 17rem;
     @include tablet {
       text-align: center;
       padding: 0;
-      flex-basis: auto;
     }
   }
 
@@ -43,6 +60,8 @@
     color: $colorGrey;
     line-height: 1.2;
     margin-bottom: 1.55rem;
+    max-height: 18rem;
+    overflow: scroll;
     @include tablet {
       margin-bottom: 0.94rem;
     }

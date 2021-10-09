@@ -4,15 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
+
     <link rel="stylesheet" href="css/main.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
     <title>Surfboard</title>
   </head>
   <body>
     <div class="wrapper">
+      <div class="modal" id="modal">
+        <div class="modal__container">
+          <div class="modal__content">Ожидание ответа...</div>
+          <button class="button button_modal">Закрыть</button>
+        </div>
+      </div>
       <div class="wrapper__content">
         <!-- Hero -->
         <section class="hero">
@@ -145,7 +161,7 @@
               <use xlink:href="img/sprite.svg#arrow"></use>
             </svg>
           </a>
-          <div class="container section-slider__container">
+          <div class="container">
             <div class="slider">
               <div class="slide">
                 <div class="slide__board">
@@ -252,50 +268,253 @@
             </svg>
           </a>
         </section>
+        <!-- Team -->
+        <section class="section section-team">
+          <div class="container">
+            <h2 class="title section-team__title">Команда</h2>
+            <ul class="team team_desktop">
+              <li class="team__item">
+                <div class="team__photo">
+                  <img src="img/team/boris.png" alt="" class="team__img" />
+                </div>
+                <div class="team__name">
+                  <p>Борис Федорович</p>
+                  <div class="team__name-trangle"></div>
+                </div>
+                <div class="team__content">
+                  <div class="team__content-inside">
+                    <p class="team__desc-first">Главный технолог</p>
+                    <p class="team__desc-second">
+                      Отвечает за материалы и разработку досок
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="team__item">
+                <div class="team__photo">
+                  <img src="img/team/olga.png" alt="" class="team__img" />
+                </div>
+                <div class="team__name">
+                  <p>Ольга Невзорова</p>
+                  <div class="team__name-trangle"></div>
+                </div>
+                <div class="team__content">
+                  <div class="team__content-inside">
+                    <p class="team__desc-first">Главный технолог</p>
+                    <p class="team__desc-second">
+                      Отвечает за материалы и разработку досок
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="team__item">
+                <div class="team__photo">
+                  <img src="img/team/ingvar.png" alt="" class="team__img" />
+                </div>
+                <div class="team__name">
+                  <p>Ингвар Нильсен</p>
+                  <div class="team__name-trangle"></div>
+                </div>
+                <div class="team__content">
+                  <div class="team__content-inside">
+                    <p class="team__desc-first">Главный технолог</p>
+                    <p class="team__desc-second">
+                      Отвечает за материалы и разработку досок
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="team__item">
+                <div class="team__photo">
+                  <img src="img/team/kate.png" alt="" class="team__img" />
+                </div>
+                <div class="team__name">
+                  <p>Екатерина Иванова</p>
+                  <div class="team__name-trangle"></div>
+                </div>
+                <div class="team__content">
+                  <div class="team__content-inside">
+                    <p class="team__desc-first">Главный технолог</p>
+                    <p class="team__desc-second">
+                      Отвечает за материалы и разработку досок
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <!-- Mobile -->
+            <ul class="team team_mobile">
+              <li class="team__item team__item_active">
+                <div class="team__name">
+                  <p>Борис Федорович</p>
+                  <div class="team__name-trangle"></div>
+                </div>
+                <div class="team__content">
+                  <div class="team__content-inside">
+                    <div class="team__photo">
+                      <img src="img/team/boris.png" alt="" class="team__img" />
+                    </div>
+                    <p class="team__desc-first">Главный технолог</p>
+                    <p class="team__desc-second">
+                      Отвечает за материалы и разработку досок
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="team__item">
+                <div class="team__name">
+                  <p>Ольга Невзорова</p>
+                  <div class="team__name-trangle"></div>
+                </div>
+                <div class="team__content">
+                  <div class="team__content-inside">
+                    <div class="team__photo">
+                      <img src="img/team/olga.png" alt="" class="team__img" />
+                    </div>
+                    <p class="team__desc-first">Главный технолог</p>
+                    <p class="team__desc-second">
+                      Отвечает за материалы и разработку досок
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="team__item">
+                <div class="team__name">
+                  <p>Ингвар Нильсен</p>
+                  <div class="team__name-trangle"></div>
+                </div>
+                <div class="team__content">
+                  <div class="team__content-inside">
+                    <div class="team__photo">
+                      <img src="img/team/ingvar.png" alt="" class="team__img" />
+                    </div>
+                    <p class="team__desc-first">Главный технолог</p>
+                    <p class="team__desc-second">
+                      Отвечает за материалы и разработку досок
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="team__item">
+                <div class="team__name">
+                  <p>Екатерина Иванова</p>
+                  <div class="team__name-trangle"></div>
+                </div>
+                <div class="team__content">
+                  <div class="team__content-inside">
+                    <div class="team__photo">
+                      <img src="img/team/kate.png" alt="" class="team__img" />
+                    </div>
+                    <p class="team__desc-first">Главный технолог</p>
+                    <p class="team__desc-second">
+                      Отвечает за материалы и разработку досок
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
         <!-- Review -->
         <section class="section section-review">
           <div class="container">
             <h2 class="title section-review__title">Отзывы</h2>
-            <div class="review">
-              <div class="review__avatar">
-                <img src="img/review/avatar1.png" alt="" class="review__img" />
-              </div>
-              <div class="review__content">
-                <h3 class="review__subtitle">Лучший дизайн</h3>
-                <div class="review__txt">
-                  <p>
-                    Я увидела доски на сайте и влюбилась в их дизайн. К летнему
-                    сезону я заказала себе доску в SurfBoard. Дизайнер команды -
-                    волшебница! Она учла все мои предпочтения и комментарии. В
-                    итоге получился прекрасный дизайн. А я катаюсь на доске,
-                    которая мне нравится)
-                  </p>
-                </div>
-                <span class="review__name">Ольга Макарова</span>
-              </div>
-            </div>
-            <div class="avatars">
-              <ul class="avatars__list">
-                <li class="avatars__item avatars__item_active">
+            <ul class="reviews">
+              <li class="reviews__item reviews__item_active">
+                <div class="reviews__avatar">
                   <img
                     src="img/review/avatar1.png"
                     alt=""
-                    class="avatars__img"
+                    class="reviews__img"
                   />
-                </li>
-                <li class="avatars__item">
+                </div>
+                <article class="reviews__content">
+                  <h3 class="reviews__subtitle">Лучший дизайн</h3>
+                  <div class="reviews__txt">
+                    <p>
+                      Я увидела доски на сайте и влюбилась в их дизайн. К
+                      летнему сезону я заказала себе доску в SurfBoard. Дизайнер
+                      команды - волшебница! Она учла все мои предпочтения и
+                      комментарии. В итоге получился прекрасный дизайн. А я
+                      катаюсь на доске, которая мне нравится)
+                    </p>
+                  </div>
+                  <span class="reviews__name">Ольга Макарова</span>
+                </article>
+              </li>
+              <li class="reviews__item">
+                <div class="reviews__avatar">
                   <img
                     src="img/review/avatar2.png"
                     alt=""
-                    class="avatars__img"
+                    class="reviews__img"
                   />
-                </li>
-                <li class="avatars__item">
+                </div>
+                <article class="reviews__content">
+                  <h3 class="reviews__subtitle">Лучший дизайн</h3>
+                  <div class="reviews__txt">
+                    <p>
+                      Я увидела доски на сайте и влюбилась в их дизайн. К
+                      летнему сезону я заказала себе доску в SurfBoard. Дизайнер
+                      команды - волшебница! Она учла все мои предпочтения и
+                      комментарии. В итоге получился прекрасный дизайн. А я
+                      катаюсь на доске, которая мне нравится)
+                    </p>
+                  </div>
+                  <span class="reviews__name">Марк Брюлов</span>
+                </article>
+              </li>
+              <li class="reviews__item">
+                <div class="reviews__avatar">
                   <img
                     src="img/review/avatar3.png"
                     alt=""
-                    class="avatars__img"
+                    class="reviews__img"
                   />
+                </div>
+                <article class="reviews__content">
+                  <h3 class="reviews__subtitle">Лучший дизайн</h3>
+                  <div class="reviews__txt">
+                    <p>
+                      Я увидела доски на сайте и влюбилась в их дизайн. К
+                      летнему сезону я заказала себе доску в SurfBoard. Дизайнер
+                      команды - волшебница! Она учла все мои предпочтения и
+                      комментарии. В итоге получился прекрасный дизайн. А я
+                      катаюсь на доске, которая мне нравится)
+                    </p>
+                  </div>
+                  <span class="reviews__name">Василий Поперечный</span>
+                </article>
+              </li>
+            </ul>
+            <div class="avatars">
+              <ul class="avatars__list">
+                <li class="avatars__item avatars__item_active">
+                  <a href="" class="avatars__link">
+                    <img
+                      src="img/review/avatar1.png"
+                      alt=""
+                      class="avatars__img"
+                    />
+                  </a>
+                </li>
+                <li class="avatars__item">
+                  <a href="" class="avatars__link">
+                    <img
+                      src="img/review/avatar2.png"
+                      alt=""
+                      class="avatars__img"
+                    />
+                  </a>
+                </li>
+                <li class="avatars__item">
+                  <a href="" class="avatars__link">
+                    <img
+                      src="img/review/avatar3.png"
+                      alt=""
+                      class="avatars__img"
+                    />
+                  </a>
                 </li>
               </ul>
             </div>
@@ -308,25 +527,46 @@
             <form action="#" class="form">
               <div class="form__col">
                 <div class="form__row">
+                  <input type="hidden" name="to" value="johndoe@gmail.com" />
                   <label class="form__item">
                     <div class="form__title">Имя</div>
-                    <input type="text" name="name" class="form__input" />
+                    <input
+                      type="text"
+                      name="name"
+                      class="form__input"
+                      required
+                    />
                   </label>
                   <label class="form__item">
                     <div class="form__title">Телефон</div>
-                    <input type="tel" name="phone" class="form__input" />
+                    <input
+                      type="tel"
+                      name="phone"
+                      class="form__input"
+                      required
+                    />
                   </label>
                 </div>
                 <div class="form__row">
                   <label class="form__item">
                     <div class="form__title">Улица</div>
-                    <input type="text" name="street" class="form__input" />
+                    <input
+                      type="text"
+                      name="street"
+                      class="form__input"
+                      required
+                    />
                   </label>
                 </div>
                 <div class="form__row">
                   <label class="form__item">
                     <div class="form__title">Дом</div>
-                    <input type="text" name="building" class="form__input" />
+                    <input
+                      type="text"
+                      name="building"
+                      class="form__input"
+                      required
+                    />
                   </label>
                   <label class="form__item">
                     <div class="form__title">Корпус</div>
@@ -334,11 +574,11 @@
                   </label>
                   <label class="form__item">
                     <div class="form__title">Квартира</div>
-                    <input type="text" name="apartment" class="form__input" />
+                    <input type="number" name="apartment" class="form__input" />
                   </label>
                   <label class="form__item">
                     <div class="form__title">Этаж</div>
-                    <input type="text" name="floor" class="form__input" />
+                    <input type="number" name="floor" class="form__input" />
                   </label>
                 </div>
               </div>
@@ -349,6 +589,7 @@
                     <textarea
                       name="comment"
                       class="form__input form__input_textarea"
+                      required
                     ></textarea>
                   </label>
                 </div>
@@ -379,8 +620,14 @@
                   </div>
                 </div>
                 <div class="form__buttons">
-                  <button class="button" type="submit">Заказать</button>
-                  <button class="button button_transp" type="reset">
+                  <button class="button" id="button" type="submit">
+                    Заказать
+                  </button>
+                  <button
+                    class="button button_transp"
+                    id="button-clear"
+                    type="reset"
+                  >
                     Очистить
                   </button>
                 </div>
@@ -437,7 +684,6 @@
         </div>
       </footer>
     </div>
-
     <nav class="fixed-menu">
       <ul class="fixed-menu__list">
         <li class="fixed-menu__item fixed-menu__item_active">
@@ -469,6 +715,21 @@
         </li>
       </ul>
     </nav>
+    <!-- JQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Fancybox -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    <!-- Slick -->
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+
     <script src="js/script.js"></script>
   </body>
 </html>

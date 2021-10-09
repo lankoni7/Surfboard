@@ -8,20 +8,34 @@
   &__item {
     width: 4.11rem;
     height: 4.11rem;
-    &:hover .avatars__img {
-      cursor: pointer;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+
+    &_active .avatars__link {
+      border-color: $colorYellow;
     }
-    &_active .avatars__img {
-      border: 0.33rem solid $colorYellow;
+  }
+
+  &__link {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: all 0.3s;
+    border: 6px solid transparent;
+
+    &:hover {
+      border-color: $colorYellow;
     }
   }
 
   &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: unset;
     border-radius: 50%;
-    border: 0.33rem solid transparent;
-    transition: all 0.3s;
-    &:hover {
-      border: 0.33rem solid $colorYellow;
-    }
   }
 }

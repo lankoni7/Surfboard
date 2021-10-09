@@ -16,7 +16,7 @@
       left: 19%;
     }
     @include phone {
-      left: 1%;
+      left: 3%;
     }
   }
   &_right {
@@ -28,13 +28,13 @@
     }
 
     @include phone {
-      right: 1%;
+      right: 3%;
     }
   }
 
   &__svg {
     width: 0.77rem;
     height: 1.5rem;
-    fill: #fff;
+    fill: transparent;
   }
 }

@@ -1,0 +1,34 @@
+.modal {
+  display: none;
+  background-color: #313131;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    width: 17rem;
+    height: 9.5rem;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1rem;
+
+    font-weight: 500;
+  }
+
+  &__content {
+    text-align: center;
+    width: 90%;
+  }
+}
+
+.fancybox__slide {
+  padding: 0;
+}
+.carousel__button {
+  display: none;
+}

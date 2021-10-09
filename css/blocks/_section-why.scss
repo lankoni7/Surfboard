@@ -1,13 +1,11 @@
 .section-why {
+  @include tablet {
+    height: 130vh;
+  }
+
   &__container {
     @include tablet {
       max-width: 97%;
-    }
-    @include phone {
-      margin-bottom: 2rem;
-    }
-    @include phoneS {
-      margin-bottom: 0;
     }
   }
   &__title {

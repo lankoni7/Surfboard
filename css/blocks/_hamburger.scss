@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: space-between;
   position: relative;
+  transition: all 0.3s;
   @include tablet {
     &_close {
       transform: rotate(90deg);
@@ -32,6 +33,6 @@
     transition: all 0.3s;
   }
   @include tablet {
-    display: inline-flex;
+    display: flex;
   }
 }

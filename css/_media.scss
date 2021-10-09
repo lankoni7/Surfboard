@@ -10,8 +10,8 @@
   }
 }
 
-@mixin phoneS {
-  @media (max-width: $phoneS) {
+@mixin phoneMini {
+  @media (max-width: $phoneMini) {
     @content;
   }
 }

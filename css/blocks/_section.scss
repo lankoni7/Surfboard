@@ -5,10 +5,10 @@
   min-height: 36.3rem;
   height: 100vh;
   @include phone {
-    height: 110vh;
+    height: 115vh;
   }
 
-  @include phoneS {
+  @include phoneMini {
     height: 130vh;
   }
 
