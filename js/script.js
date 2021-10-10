@@ -144,7 +144,6 @@ avatarsLink.forEach((el, idx) => {
 const form = document.querySelector(".form");
 const sendBtn = document.querySelector("#button");
 const clearBtn = document.querySelector("#button-clear");
-const modalContent = document.querySelector(".modal__content");
 
 const validateField = (field) => {
   if (!field.checkValidity()) {
@@ -187,6 +186,14 @@ sendBtn.addEventListener("click", (e) => {
       comment: form.elements.comment.value,
       to: form.elements.to.value,
     };
+    const modalContent = document.querySelector(".modal__content");
+    const modal = modalContent.parentElement.parentElement;
+
+    const closeModal = () => {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    };
+
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "https://webdev-api.loftschool.com/sendmail");
     xhr.setRequestHeader("content-type", "application/json");
@@ -194,23 +201,13 @@ sendBtn.addEventListener("click", (e) => {
     xhr.responseType = "json";
     xhr.addEventListener("load", () => {
       modalContent.innerHTML = xhr.response.message;
+      modal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+      const closeBtn = document.querySelector(".button_modal");
+      closeBtn.addEventListener("click", () => {
+        closeModal();
+      });
     });
-
-    const fancybox = new Fancybox([
-      {
-        src: "#modal",
-        type: "inline",
-        // closeBtn: $(".button_modal"), Не работает
-      },
-    ]);
-
-    // Fancybox.show([
-    //   {
-    //     src: "#modal",
-    //     type: "inline",
-    //     closeBtn: $(".button_modal"),
-    //   },
-    // ]);
   }
 });
 

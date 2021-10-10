@@ -2,6 +2,8 @@
   &_desktop {
     display: flex;
     justify-content: space-between;
+    column-gap: 0.5rem;
+
     @include tablet {
       display: none;
     }
@@ -55,6 +57,7 @@
     margin-bottom: 0.4rem;
     cursor: pointer;
   }
+
   &__name-trangle {
     width: 0;
     height: 0;
@@ -62,13 +65,13 @@
     border-width: 7px 4px 0 4px;
     border-color: #000000 transparent transparent transparent;
     margin-top: 0.55rem;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
 
   &__content {
     overflow: hidden;
     height: 0;
-    transition: height 0.5s;
+    transition: height 0.3s;
   }
 
   &__content-inside {

@@ -4,11 +4,19 @@
   font-weight: 700;
   padding: 1.11rem 2rem;
   border-radius: 100px;
+  &:hover {
+    background: #f3c808;
+  }
   &_transp {
     background: transparent;
     padding: 0.27rem;
     text-transform: none;
     color: #fff;
     font-weight: 400;
+    &:hover {
+      background: transparent;
+
+      color: $colorYellow;
+    }
   }
 }

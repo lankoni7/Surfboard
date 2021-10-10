@@ -30,7 +30,7 @@
       align-items: center;
       row-gap: 1rem;
     }
-    @include phoneMini {
+    @include phone {
       row-gap: 0;
     }
   }
