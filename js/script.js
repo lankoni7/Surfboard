@@ -18,6 +18,15 @@ $(".slider").slick({
   nextArrow: document.getElementById("right"),
 });
 
+const optionsIcons = document.querySelectorAll(".options__icon");
+
+optionsIcons.forEach((el) => {
+  el.addEventListener("click", (e) => {
+    const optionsIcon = e.currentTarget;
+    optionsIcon.parentElement.classList.toggle("options_active");
+  });
+});
+
 /*  My Slider
  const leftBtn = document.querySelector(".arrow_left");
 const rightBtn = document.querySelector(".arrow_right");
@@ -54,7 +63,7 @@ leftBtn.addEventListener("click", (e) => {
 // Team
 
 const openContent = (teamName) => {
-  const teamItem = teamName.parentElement.parentElement;
+  const teamItem = teamName.parentElement;
   const teamContent = teamItem.querySelector(".team__content");
   const teamContInside = teamItem.querySelector(".team__content-inside");
   const contentHeight = getComputedStyle(teamContInside).height;
@@ -80,9 +89,10 @@ const names = document.querySelectorAll(".team__name");
 
 names.forEach((el) => {
   el.addEventListener("click", (e) => {
-    const teamName = e.target;
-    const teamItem = e.target.parentElement.parentElement;
-    const team = e.target.parentElement.parentElement.parentElement;
+    console.log(e.currentTarget);
+    const teamName = e.currentTarget;
+    const teamItem = e.currentTarget.parentElement;
+    const team = e.currentTarget.parentElement.parentElement;
 
     if (teamItem.classList.contains("team__item_active")) {
       closeContent(team);
