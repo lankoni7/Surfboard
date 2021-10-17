@@ -665,22 +665,29 @@
                 
                   <div class="player__start player__start_big">
 
-                    <img src="img/player/play.png" alt="" class="player__start-img">
-
+                   
+                    <svg class="player__start-svg">
+                      <use xlink:href="img/sprite.svg#play"></use>
+                    </svg>
                   </div>
                  
                   <div class="player__controls">
                     <div class="player__start player__start_small">
-                      <!-- <svg class="player__start-svg">
+                      <svg class="player__start-svg">
                         <use xlink:href="img/sprite.svg#play"></use>
-                      </svg> -->
-                      <img src="img/player/play.png" alt="" class="player__start-img">
+                      </svg>
+                    
                     </div>
                     <div class="player__duration">
                       <input type="range" name="duration" value="" class="player__duration-input">
                     </div>
                     <div class="player__sound">
-                      <img src="img/player/sound.png" alt="" class="player__sound-img">
+                      <div class="player__sound-ico">
+                        <svg class="player__sound-svg">
+                          <use xlink:href="img/sprite.svg#sound"></use>
+                        </svg>
+
+                      </div>
                       <input type="range" name="sound" class="player__sound-input">
                     </div>
   
