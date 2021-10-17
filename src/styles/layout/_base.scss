@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $baseFont;
+  @include phone {
+    font-size: $baseFont - 2px;
+  }
+  @include phoneMini {
+    font-size: $baseFont - 5px;
+  }
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Alegreya Sans", sans-serif;
+  color: #000;
+  line-height: 1.22em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: normal;
+}
+p {
+  margin: 0;
+}
+a {
+  cursor: pointer;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+svg {
+  max-width: 100%;
+  max-height: 100%;
+}
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+button {
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+.container {
+  margin: 0 auto;
+  max-width: 85%;
+  width: 100%;
+  @include tablet {
+    max-width: 94%;
+  }
+}
+
+.wrapper__content {
+  height: 100%;
+  flex: 1;
+  transition: transform 0.7s;
+  will-change: transform;
+  transform: translateY(0);
+  @include tablet {
+    transition: transform 0.3s;
+  }
+}

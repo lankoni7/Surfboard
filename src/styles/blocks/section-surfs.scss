@@ -1,0 +1,13 @@
+.section-surfs {
+  position: relative;
+  background: url("/img/surfs/background.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  &__title {
+    position: absolute;
+    top: 10%;
+    left: 7%;
+    z-index: 30;
+  }
+}

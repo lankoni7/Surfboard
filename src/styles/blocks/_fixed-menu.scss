@@ -1,0 +1,56 @@
+.fixed-menu {
+  position: fixed;
+  top: 29%;
+  right: 4%;
+  z-index: $z-index-menu;
+  @include tablet {
+    display: none;
+  }
+
+  &_black &__item:hover &__link {
+    border-color: #000;
+  }
+
+  &_black &__link::before {
+    background: #000;
+  }
+
+  &_black &__item_active &__link {
+    border-color: #000;
+  }
+
+  &__item {
+    margin-bottom: 0.27rem;
+    &_active .fixed-menu__link {
+      border-color: #fff;
+      transition: border-color 0.7s;
+    }
+    &:hover .fixed-menu__link {
+      border-color: #fff;
+      transition: all 0.7s;
+    }
+  }
+
+  &__link {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    display: block;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      transition: all 0.7s;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.section-review {
+  &__title {
+    margin-bottom: 1.9rem;
+
+    @include phone {
+      margin-bottom: 0.5rem;
+    }
+  }
+}

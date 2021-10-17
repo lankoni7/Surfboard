@@ -1,0 +1,8 @@
+.section-team {
+  &__title {
+    margin-bottom: 3rem;
+    @include phone {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

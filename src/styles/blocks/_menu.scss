@@ -1,0 +1,61 @@
+.menu {
+  margin: 0 0.5rem;
+  transition: opacity 0.3s;
+
+  @include tablet {
+    display: block;
+    background-color: #313131;
+    position: absolute;
+    top: 0;
+    left: 555rem;
+    opacity: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding: 17% 0 0;
+  }
+  @include phone {
+    padding: 10% 0 0;
+  }
+  @include phoneMini {
+    padding: 5% 0 0;
+  }
+
+  &__list {
+    display: flex;
+    column-gap: 1.22rem;
+    flex-wrap: wrap;
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+      row-gap: 1rem;
+    }
+    @include phone {
+      row-gap: 0;
+    }
+  }
+
+  &__item {
+    position: relative;
+    @include tablet {
+      left: 555rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    line-height: 1.6;
+    color: inherit;
+
+    @include tablet {
+      font-size: 2rem;
+      line-height: 2em;
+    }
+  }
+  &_full-screen {
+    left: 0;
+    opacity: 1;
+  }
+}

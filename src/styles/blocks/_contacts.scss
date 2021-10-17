@@ -1,0 +1,25 @@
+.contacts {
+  text-decoration: none;
+  font-size: 1.22rem;
+  line-height: 0.81;
+  color: inherit;
+  flex-shrink: 0;
+
+  &_desktop {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__svg {
+    width: 0.66rem;
+    height: 0.83rem;
+    fill: #fff;
+    &_black {
+      fill: #000;
+    }
+  }
+  &__phone {
+    white-space: nowrap;
+  }
+}

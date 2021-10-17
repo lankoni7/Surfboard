@@ -53,3 +53,5 @@ prepros-6.config
 prepros.config
 
 # End of https://www.toptal.com/developers/gitignore/api/osx,prepros,git
+**/node_modules
+/dist
