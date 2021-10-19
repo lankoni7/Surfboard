@@ -654,13 +654,13 @@
         </section>
         <!-- How we work -->
         <section data-menu-color="black" data-section="work" class="section section-work">
-          <div class="container">
+          <div class="container section-work__container">
             <h2 class="title section-work__title">Как мы работаем</h2>
-            <div class="section-work__container">
+            <div class="section-work__wrapper">
               <div class="player">
                 
                   <video poster="img/player/background.png"  class="player__video" id="player-video" >
-                    <source src="video/video1.mp4" type="video/mp4">         
+                    <source src="video/ludovico.mp4" type="video/mp4">         
                    </video>
                 
                   <div class="player__start player__start_big">
@@ -819,7 +819,8 @@
         </section>
         <!-- Map -->
         <section data-menu-color="black" data-section="map" class="section-map section">
-          <div class="map"></div>
+          <div class="section-map__container" id="map">
+          </div>
           <footer class="footer">
             <div class="container footer__container">
               <address class="address">
@@ -918,10 +919,12 @@
     ></script>
     <!-- Mobile Detect -->
     <script src="https://cdn.jsdelivr.net/npm/mobile-detect@1.4.5/mobile-detect.min.js"></script>
-    <!-- Touch Swipe -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js" integrity="sha512-YYiD5ZhmJ0GCdJvx6Xe6HzHqHvMpJEPomXwPbsgcpMFPW+mQEeVBU6l9n+2Y+naq+CLbujk91vHyN18q6/RSYw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://www.youtube.com/iframe_api"></script>
+   
+    <!-- Yandex Maps -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript">
+    </script>
 
+    <script src="swipe.js"></script>
     <script src="index.js"></script>
   </body>
 </html>

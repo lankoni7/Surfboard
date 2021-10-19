@@ -1,12 +1,23 @@
 .section-work {
+  background: #f8faf9;
+
   &__title {
     margin-bottom: 1.66rem;
   }
 
-  &__container {
+  &__wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+  }
+
+  &__container {
+    @include tablet {
+      max-width: 90%;
+    }
+    @include phone {
+      max-width: 95%;
+    }
   }
 }

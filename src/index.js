@@ -363,10 +363,10 @@ const scroll = (direction) => {
 
 window.addEventListener("wheel", (e) => {
   const deltaY = e.deltaY;
-  if (deltaY > 0 && deltaY < 20) {
+  if (deltaY > 0) {
     scroll("next");
   }
-  if (deltaY < 0 && deltaY > -20) {
+  if (deltaY < 0) {
     scroll("prev");
   }
 });
@@ -397,24 +397,30 @@ menuLinks.forEach((el) => {
     transform(reqSection.index());
   });
 });
-window.addEventListener("touchmove", (e) => {
-  e.preventDefault();
-});
 
-const md = new MobileDetect(window.navigator.userAgent);
-if (md.mobile()) {
-  $("body").swipe({
-    swipe: function (event, direction) {
-      let scrollDirection = "";
-      if (direction == "up") {
-        scroll("next");
-      }
-      if (direction == "down") {
-        scroll("prev");
-      }
-    },
-  });
-}
+// const wrapper = document.querySelector(".wrapper");
+// wrapper.addEventListener(
+//   "touchmove",
+//   (e) => {
+//     console.log(e);
+//     // e.preventDefault();
+//   },
+//   { passive: false }
+// );
+
+// const md = new MobileDetect(window.navigator.userAgent);
+// if (md.mobile()) {
+//   $("body").swipe({
+//     swipe: function (event, direction) {
+//       if (direction == "up") {
+//         scroll("next");
+//       }
+//       if (direction == "down") {
+//         scroll("prev");
+//       }
+//     },
+//   });
+// }
 
 // Video
 
@@ -442,23 +448,23 @@ $().ready(function () {
   soundDuration.addEventListener("click", changeSound);
   soundDuration.addEventListener("onmousemove", changeSound);
   soundDuration.min = 0;
-  soundDuration.max = 0;
+  soundDuration.max = 10;
   soundDuration.value = soundDuration.max;
 
   function playStop() {
     player.classList.toggle("player_active");
     playDuration.max = video.duration;
-    console.log(video.paused);
 
     if (video.paused) {
-      video.play;
+      video.play();
+      player.classList.add("player_active");
       intervalId = setInterval(updateDuration, 1);
     } else {
-      video.pause;
+      video.pause();
+      player.classList.remove("player_active");
       clearInterval(intervalId);
     }
   }
-
   function changeSound() {
     video.volume = soundDuration.value / 10;
   }
@@ -477,41 +483,34 @@ $().ready(function () {
   }
 });
 
-//   YouTube $().ready(function () {
-//   let player;
+// Map
 
-// const playerContainer = document.querySelector(".player");
+ymaps.ready(init);
 
-// const eventsInit = () => {
-//   const btn = document.querySelector(".player__start");
-//   btn.addEventListener("click", () => {
-//     if (playerContainer.classList.contains("player_paused")) {
-//       playerContainer.classList.remove("player_paused");
-//       player.pauseVideo();
-//     } else {
-//       playerContainer.classList.add("player_paused");
-//       player.playVideo();
-//     }
-//   });
-// };
+function init() {
+  const myMap = new ymaps.Map("map", {
+    center: [55.02852, 82.928948],
+    zoom: 13,
+  });
+  var myPlacemark = new ymaps.Placemark(
+    [55.036864, 82.92011],
+    {},
+    {
+      iconLayout: "default#image",
+      iconImageHref: "img/map/icon.png",
+      iconImageSize: [58, 73],
+      iconImageOffset: [-3, -42],
+    }
+  );
+  myMap.geoObjects.add(myPlacemark);
+  myMap.behaviors.disable("scrollZoom");
+}
+$("body").onSwipe((results) => {
+  if (results.up == true) {
+    scroll("next");
+  }
 
-//   function onYouTubeIframeAPIReady() {
-//     player = new YT.Player("player-yt", {
-//       height: "390",
-//       width: "660",
-//       videoId: "tZeMfF45Gmc",
-//       events: {
-//         onReady: onPlayerReady,
-//         onStateChange: onPlayerStateChange,
-//       },
-//       playerVars: {
-//         autoplay: 0,
-//         controls: 0,
-//         disablekb: 0,
-//         modestbranding: 0,
-//         showinfo: 0,
-//         rel: 0,
-//       },
-//     });
-//   }
-// });
+  if (results.down == true) {
+    scroll("prev");
+  }
+});
