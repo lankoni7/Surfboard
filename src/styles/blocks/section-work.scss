@@ -5,13 +5,6 @@
     margin-bottom: 1.66rem;
   }
 
-  &__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-  }
-
   &__container {
     @include tablet {
       max-width: 90%;
@@ -19,5 +12,12 @@
     @include phone {
       max-width: 95%;
     }
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 37rem;
   }
 }

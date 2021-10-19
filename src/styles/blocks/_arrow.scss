@@ -2,7 +2,7 @@
   position: absolute;
   top: 50%;
   height: 1.5rem;
-  z-index: 300;
+  z-index: 1000;
 
   @include tablet {
     top: 30%;

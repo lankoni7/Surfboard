@@ -1,6 +1,6 @@
 .player {
   position: relative;
-  max-width: 37rem;
+  max-width: 100%;
   // min-width: 37rem;
   // max-height: 23rem;
   // min-height: 23rem;
@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   @include tablet {
-    max-width: 100%;
+    // max-width: 100%;
     // max-height: 100%;
   }
 
@@ -38,8 +38,9 @@
   }
 
   &__video {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
+    object-fit: fill;
   }
   &__start {
     cursor: pointer;
@@ -59,7 +60,7 @@
   }
 
   &__controls {
-    width: 100%;
+    max-width: 100%;
     height: 2rem;
     background-color: #404040;
     display: flex;
@@ -69,7 +70,9 @@
     // flex-shrink: 0;
     @include tablet {
       column-gap: 1rem;
-      font-size: $baseFont - 2px;
+    }
+    @include phone {
+      column-gap: 0.5rem;
     }
   }
 
@@ -81,7 +84,7 @@
   }
 
   &__duration {
-    width: 65%;
+    width: 100%;
     display: flex;
     align-items: center;
     &-input {
@@ -93,33 +96,37 @@
     display: flex;
     align-items: center;
     column-gap: 1rem;
+    @include phone {
+      column-gap: 0.5rem;
+    }
     &-ico {
       width: 0.72rem;
       height: 0.88rem;
+      flex-shrink: 0;
     }
     &-svg {
       fill: #fff;
     }
   }
-}
 
-input[type="range"]:focus {
-  outline: none;
-}
-input[type="range"] {
-  -webkit-appearance: none;
-  width: 100%;
-  border-radius: 8px;
-  height: 5px;
-  border: none;
-  background-color: #626262;
-}
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  background-color: $colorYellow;
-  border: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 10px;
-  cursor: pointer;
+  & input[type="range"]:focus {
+    outline: none;
+  }
+  & input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    border-radius: 8px;
+    height: 5px;
+    border: none;
+    background-color: #626262;
+  }
+  & input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: $colorYellow;
+    border: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
 }

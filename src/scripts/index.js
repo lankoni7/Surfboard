@@ -27,39 +27,6 @@ optionsIcons.forEach((el) => {
   });
 });
 
-/*  My Slider
- const leftBtn = document.querySelector(".arrow_left");
-const rightBtn = document.querySelector(".arrow_right");
-const slider = document.querySelector(".slider");
-const slide = document.querySelector(".slide");
-const slides = document.querySelectorAll(".slide");
-const slideWidth = window.getComputedStyle(slides[0]).width;
-console.log(slideWidth);
-
-const step = parseFloat(slideWidth);
-const minRight = 0;
-const maxRight = (slides.length - 1) * step;
-console.log(maxRight);
-let currentRight = 0;
-
-slider.style.right = currentRight;
-
-rightBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (currentRight < maxRight) {
-    currentRight += step;
-    slider.style.right = `${currentRight}px`;
-  }
-});
-
-leftBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (currentRight > minRight) {
-    currentRight -= step;
-    slider.style.right = `${currentRight}px`;
-  }
-}); */
-
 // Team
 
 const openContent = (teamName) => {
@@ -373,7 +340,7 @@ window.addEventListener("wheel", (e) => {
 
 window.addEventListener("keydown", (e) => {
   const tagName = e.target.tagName.toLowerCase();
-
+  console.log(e.target.tagName.toLowerCase());
   if (tagName != "input" && tagName != "textarea") {
     switch (e.keyCode) {
       case 38:
@@ -398,29 +365,29 @@ menuLinks.forEach((el) => {
   });
 });
 
-// const wrapper = document.querySelector(".wrapper");
-// wrapper.addEventListener(
-//   "touchmove",
-//   (e) => {
-//     console.log(e);
-//     // e.preventDefault();
-//   },
-//   { passive: false }
-// );
+// Эта проверка не работает
+// document.getElementById("map").addEventListener("touchmove", (e) => {
+//   const mapSwipe = e.currentTarget.className;
+//   console.log(e.currentTarget.className);
+//   if (mapSwipe == "section-map__container") {
+//     return false;
+//   } else {
+// сюда слайдер
+//   }
+// });
 
-// const md = new MobileDetect(window.navigator.userAgent);
-// if (md.mobile()) {
-//   $("body").swipe({
-//     swipe: function (event, direction) {
-//       if (direction == "up") {
-//         scroll("next");
-//       }
-//       if (direction == "down") {
-//         scroll("prev");
-//       }
-//     },
-//   });
-// }
+const md = new MobileDetect(window.navigator.userAgent);
+if (md.mobile()) {
+  $("body").onSwipe((results) => {
+    if (results.up == true) {
+      scroll("next");
+    }
+
+    if (results.down == true) {
+      scroll("prev");
+    }
+  }, (timeTreshold = 0));
+}
 
 // Video
 
@@ -433,20 +400,21 @@ $().ready(function () {
   playBtns.forEach((el) => {
     el.addEventListener("click", playStop);
   });
-  const soundPic = document.querySelector(".player__sound-img");
-
-  // soundPic.addEventListener("click", soundOff);
 
   const playDuration = document.querySelector(".player__duration-input");
   playDuration.addEventListener("click", setVideoDuration);
   playDuration.addEventListener("onmousemove", setVideoDuration);
   playDuration.addEventListener("mousedown", stopInterval);
+  playDuration.addEventListener("touchmove", setVideoDuration);
+  playDuration.addEventListener("touchstart", setVideoDuration);
   playDuration.min = 0;
   playDuration.value = 0;
 
   const soundDuration = document.querySelector(".player__sound-input");
   soundDuration.addEventListener("click", changeSound);
   soundDuration.addEventListener("onmousemove", changeSound);
+  soundDuration.addEventListener("touchmove", changeSound);
+  soundDuration.addEventListener("touchstart", changeSound);
   soundDuration.min = 0;
   soundDuration.max = 10;
   soundDuration.value = soundDuration.max;
@@ -505,12 +473,3 @@ function init() {
   myMap.geoObjects.add(myPlacemark);
   myMap.behaviors.disable("scrollZoom");
 }
-$("body").onSwipe((results) => {
-  if (results.up == true) {
-    scroll("next");
-  }
-
-  if (results.down == true) {
-    scroll("prev");
-  }
-});

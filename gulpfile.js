@@ -17,11 +17,14 @@ task("clean", () => {
   return src(`${DIST_PATH}/**/*`, { read: false }).pipe(rm());
 });
 
-task("copy", () => {
-  return src([`${SRC_PATH}/*.html`, `${SRC_PATH}/*.js`]).pipe(
-    dest(`${DIST_PATH}`)
-  );
+task("copy:html", () => {
+  return src(`${SRC_PATH}/*.html`).pipe(dest(`${DIST_PATH}`));
 });
+
+task("copy:scripts", () => {
+  return src(`${SRC_PATH}/scripts/*.js`).pipe(dest(`${DIST_PATH}/scripts`));
+});
+
 task("copy:img", () => {
   return src(`${SRC_PATH}/img/**/*`).pipe(dest(`${DIST_PATH}/img`));
 });
@@ -61,17 +64,20 @@ task("server", () => {
 });
 
 task("watch", () => {
-  watch(`${SRC_PATH}/styles/**/*.scss`, series("styles")),
-    watch([
-      `${SRC_PATH}/*.html`,
-      `${SRC_PATH}/styles/**/*.scss`,
-      `${SRC_PATH}/*.js`,
-    ]).on("change", reload);
+  watch(`${SRC_PATH}/styles/**/*.scss`, series("styles"));
+  // watch([
+  //   `${SRC_PATH}/*.html`,
+  //   `${SRC_PATH}/styles/**/*.scss`,
+  //   `${SRC_PATH}/scripts/*.js`,
+  // ]).on("change", reload);
 });
 
 task(
   "build",
-  series("clean", parallel("styles", "copy", "copy:img", "copy:video"))
+  series(
+    "clean",
+    parallel("styles", "copy:html", "copy:html", "copy:img", "copy:video")
+  )
 );
 
 task("default", series("styles", parallel("watch", "server")));
