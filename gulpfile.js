@@ -76,7 +76,7 @@ task(
   "build",
   series(
     "clean",
-    parallel("styles", "copy:html", "copy:html", "copy:img", "copy:video")
+    parallel("styles", "copy:html", "copy:scripts", "copy:img", "copy:video")
   )
 );
 

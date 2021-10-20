@@ -1,6 +1,6 @@
 .player {
   position: relative;
-  max-width: 100%;
+  max-width: 37rem;
   // min-width: 37rem;
   // max-height: 23rem;
   // min-height: 23rem;
@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   @include tablet {
-    // max-width: 100%;
+    max-width: 100%;
     // max-height: 100%;
   }
 
@@ -38,8 +38,9 @@
   }
 
   &__video {
-    max-width: 100%;
+    width: 100%;
     height: 100%;
+
     object-fit: fill;
   }
   &__start {
@@ -60,22 +61,19 @@
   }
 
   &__controls {
-    max-width: 100%;
+    width: 100%;
     height: 2rem;
     background-color: #404040;
     display: flex;
     align-items: center;
     padding: 0 1rem;
     column-gap: 2rem;
-    // flex-shrink: 0;
-    @include tablet {
-      column-gap: 1rem;
-    }
     @include phone {
-      column-gap: 0.5rem;
+      column-gap: 1rem;
+      padding: 0 0.7rem;
+      // font-size: $baseFont - 2px;
     }
   }
-
   &__start_small {
     width: 0.77rem;
     height: 1.05rem;

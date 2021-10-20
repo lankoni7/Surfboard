@@ -23,7 +23,7 @@
     margin-bottom: 0.27rem;
     &_active .fixed-menu__link {
       border-color: #fff;
-      transition: border-color 0.7s;
+      transition: all 0.7s;
     }
     &:hover .fixed-menu__link {
       border-color: #fff;

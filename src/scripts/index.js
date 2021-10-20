@@ -308,7 +308,7 @@ const transform = (sectionNum) => {
     if (!isMobile) {
       setTimeout(() => {
         inScroll = false;
-      }, 1000);
+      }, 1300);
     } else {
       inScroll = false;
     }
@@ -376,18 +376,15 @@ menuLinks.forEach((el) => {
 //   }
 // });
 
-const md = new MobileDetect(window.navigator.userAgent);
-if (md.mobile()) {
-  $("body").onSwipe((results) => {
-    if (results.up == true) {
-      scroll("next");
-    }
+$("body").onSwipe((results) => {
+  if (results.up == true) {
+    scroll("next");
+  }
 
-    if (results.down == true) {
-      scroll("prev");
-    }
-  }, (timeTreshold = 0));
-}
+  if (results.down == true) {
+    scroll("prev");
+  }
+}, (timeTreshold = 0));
 
 // Video
 

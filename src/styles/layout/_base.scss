@@ -77,7 +77,5 @@ button {
   transition: transform 0.7s;
   will-change: transform;
   transform: translateY(0);
-  @include tablet {
-    transition: transform 0.3s;
-  }
+  touch-action: none;
 }
