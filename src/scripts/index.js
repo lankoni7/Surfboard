@@ -277,7 +277,7 @@ const wrapper = document.querySelector(".wrapper__content");
 const sideMenu = $(".fixed-menu");
 const sideMenuItems = sideMenu.find(".fixed-menu__item");
 const md = new MobileDetect(window.navigator.userAgent);
-const isMobile = md.mobile();
+const isMobile = typeof md.mobile() == "string";
 sections.first().addClass("section_active");
 let inScroll = false;
 
@@ -381,7 +381,7 @@ menuLinks.forEach((el) => {
   });
 });
 
-if (typeof isMobile == "string") {
+if (isMobile) {
   $("body").swipe({
     swipe: function (event, direction) {
       const scroller = viewportScroller();
