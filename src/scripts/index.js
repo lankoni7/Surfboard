@@ -381,9 +381,10 @@ menuLinks.forEach((el) => {
   });
 });
 
-console.log(isMobile == true);
+console.log(isMobile == null);
+console.log(isMobile);
 
-if (isMobile) {
+if (isMobile != null) {
   $("body").swipe({
     swipe: function (event, direction) {
       const scroller = viewportScroller();
