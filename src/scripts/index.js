@@ -381,10 +381,7 @@ menuLinks.forEach((el) => {
   });
 });
 
-console.log(isMobile == null);
-console.log(isMobile);
-
-if (isMobile != null) {
+if (typeof isMobile == "string") {
   $("body").swipe({
     swipe: function (event, direction) {
       const scroller = viewportScroller();
@@ -478,7 +475,7 @@ function init() {
     {},
     {
       iconLayout: "default#image",
-      iconImageHref: "img/map/icon.png",
+      iconImageHref: "img/map/icon.svg",
       iconImageSize: [58, 73],
       iconImageOffset: [-3, -42],
     }
