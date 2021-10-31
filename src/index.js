@@ -1,7 +1,7 @@
 // Menu
 
-const hamburger = document.querySelector("#hamburger");
-const menu = document.querySelector("#menu");
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
 const menuItem = document.querySelectorAll(".menu__item");
 
 hamburger.addEventListener("click", function () {
@@ -22,8 +22,11 @@ const optionsIcons = document.querySelectorAll(".options__icon");
 
 optionsIcons.forEach((el) => {
   el.addEventListener("click", (e) => {
-    const optionsIcon = e.currentTarget;
-    optionsIcon.parentElement.classList.toggle("options_active");
+    const optionsIconParent = e.currentTarget.parentElement;
+    optionsIconParent.classList.toggle("options_active");
+    window.addEventListener("orientationchange", () => {
+      optionsIconParent.classList.remove("options_active");
+    });
   });
 });
 
@@ -118,8 +121,8 @@ avatarsLink.forEach((el, idx) => {
 // Form
 
 const form = document.querySelector(".form");
-const sendBtn = document.querySelector("#button");
-const clearBtn = document.querySelector("#button-clear");
+const sendBtn = document.getElementById("button");
+const clearBtn = document.getElementById("button-clear");
 
 const validateField = (field) => {
   if (!field.checkValidity()) {
@@ -197,7 +200,7 @@ clearBtn.addEventListener("click", () => {
 
 // Surfs
 const isSmallScreen = window.matchMedia("(max-width:800px").matches;
-const isMobile = window.matchMedia("(max-width:768px)").matches;
+const isMobileWidth = window.matchMedia("(max-width:768px)").matches;
 
 const widthCount = (item) => {
   let reqWidth = 0;
@@ -215,7 +218,7 @@ const widthCount = (item) => {
     getComputedStyle(surfsContentInside).paddingRight
   );
 
-  if (isMobile) {
+  if (isMobileWidth) {
     reqWidth = windowWidth - surfsItemsWidth;
   } else if (isSmallScreen) {
     reqWidth = windowWidth - surfsItemsWidth;
@@ -273,83 +276,100 @@ surfsHeads.forEach((el) => {
 // OPS
 
 const sections = $(".section");
-const display = document.querySelector(".wrapper__content");
+const wrapper = document.querySelector(".wrapper__content");
+const sideMenu = $(".fixed-menu");
+const sideMenuItems = sideMenu.find(".fixed-menu__item");
+const isMobileAgent = /Android|webOS|Mobile|iPhone|iPad|iPod|BlackBerry/i.test(
+  navigator.userAgent
+);
 sections.first().addClass("section_active");
 let inScroll = false;
 
-const transform = (sectionNum) => {
-  if (!inScroll) {
-    inScroll = true;
-    const position = sectionNum * -100;
-    const currentSec = sections.eq(sectionNum);
-    const menuColor = currentSec.attr("data-menu-color");
-    const sideMenu = $(".fixed-menu");
+const sectionPosition = (sectionNum) => {
+  return sectionNum * -100;
+};
 
-    if (menuColor == "black") {
-      sideMenu.addClass("fixed-menu_black");
-    } else {
-      sideMenu.removeClass("fixed-menu_black");
-    }
-    display.style.transform = `translateY(${position}%)`;
+const sideMenuTheme = (sectionNum) => {
+  const currentSec = sections.eq(sectionNum);
+  const menuColor = currentSec.attr("data-menu-color");
 
-    sections
-      .eq(sectionNum)
-      .addClass("section_active")
-      .siblings()
-      .removeClass("section_active");
-
-    sideMenu
-      .find(".fixed-menu__item")
-      .eq(sectionNum)
-      .addClass("fixed-menu__item_active")
-      .siblings()
-      .removeClass("fixed-menu__item_active");
-
-    if (!isMobile) {
-      setTimeout(() => {
-        inScroll = false;
-      }, 1300);
-    } else {
-      inScroll = false;
-    }
+  if (menuColor == "black") {
+    sideMenu.addClass("fixed-menu_black");
+  } else {
+    sideMenu.removeClass("fixed-menu_black");
   }
 };
 
-const scroll = (direction) => {
+const setActiveClass = (items, itemNum, activeClass) => {
+  items.eq(itemNum).addClass(activeClass).siblings().removeClass(activeClass);
+};
+
+const transformWrapper = (sectionNum) => {
+  if (inScroll) return;
+  inScroll = true;
+  const position = sectionPosition(sectionNum);
+  wrapper.style.transform = `translateY(${position}%)`;
+  const transitionOver = 700;
+  const touchpadInertiaOver = 600;
+  sideMenuTheme(sectionNum);
+
+  setActiveClass(sections, sectionNum, "section_active");
+
+  setActiveClass(sideMenuItems, sectionNum, "fixed-menu__item_active");
+
+  if (!isMobileAgent) {
+    setTimeout(() => {
+      inScroll = false;
+    }, transitionOver + touchpadInertiaOver);
+  } else {
+    inScroll = false;
+  }
+};
+
+const viewportScroller = () => {
   const activeSection = sections.filter(".section_active");
   const nextSection = activeSection.next();
   const prevSection = activeSection.prev();
 
-  if (direction == "next" && nextSection.length) {
-    transform(nextSection.index());
-  }
-  if (direction == "prev" && prevSection.length) {
-    transform(prevSection.index());
-  }
+  return {
+    next() {
+      if (nextSection.length) {
+        transformWrapper(nextSection.index());
+      }
+    },
+
+    prev() {
+      if (prevSection.length) {
+        transformWrapper(prevSection.index());
+      }
+    },
+  };
 };
 
 window.addEventListener("wheel", (e) => {
   const deltaY = e.deltaY;
+  const scroller = viewportScroller();
   if (deltaY > 0) {
-    scroll("next");
+    scroller.next();
   }
   if (deltaY < 0) {
-    scroll("prev");
+    scroller.prev();
   }
 });
 
 window.addEventListener("keydown", (e) => {
   const tagName = e.target.tagName.toLowerCase();
-  console.log(e.target.tagName.toLowerCase());
-  if (tagName != "input" && tagName != "textarea") {
-    switch (e.keyCode) {
-      case 38:
-        scroll("prev");
-        break;
-      case 40:
-        scroll("next");
-        break;
-    }
+  const userTypingInInputs = tagName == "input" || tagName == "textarea";
+  const scroller = viewportScroller();
+  if (userTypingInInputs) return;
+
+  switch (e.keyCode) {
+    case 38:
+      scroller.prev();
+      break;
+    case 40:
+      scroller.next();
+      break;
   }
 });
 
@@ -361,30 +381,27 @@ menuLinks.forEach((el) => {
     const menuLink = e.currentTarget;
     const target = menuLink.getAttribute("data-scroll-to");
     const reqSection = $(`[data-section=${target}]`);
-    transform(reqSection.index());
+    transformWrapper(reqSection.index());
   });
 });
 
-// Эта проверка не работает
-// document.getElementById("map").addEventListener("touchmove", (e) => {
-//   const mapSwipe = e.currentTarget.className;
-//   console.log(e.currentTarget.className);
-//   if (mapSwipe == "section-map__container") {
-//     return false;
-//   } else {
-// сюда слайдер
-//   }
-// });
+if (isMobileAgent) {
+  $("body").swipe({
+    swipe: function (event, direction) {
+      const scroller = viewportScroller();
+      const userOnMap = event.target.tagName.toLowerCase() == "ymaps";
+      if (userOnMap) return;
 
-$("body").onSwipe((results) => {
-  if (results.up == true) {
-    scroll("next");
-  }
+      if (direction == "up") {
+        scroller.next();
+      }
 
-  if (results.down == true) {
-    scroll("prev");
-  }
-}, (timeTreshold = 0));
+      if (direction == "down") {
+        scroller.prev();
+      }
+    },
+  });
+}
 
 // Video
 
@@ -462,7 +479,7 @@ function init() {
     {},
     {
       iconLayout: "default#image",
-      iconImageHref: "img/map/icon.png",
+      iconImageHref: "img/map/icon.svg",
       iconImageSize: [58, 73],
       iconImageOffset: [-3, -42],
     }
