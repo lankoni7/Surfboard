@@ -197,7 +197,6 @@ clearBtn.addEventListener("click", () => {
 
 // Surfs
 const isSmallScreen = window.matchMedia("(max-width:800px").matches;
-const isSmallScreen = window.matchMedia("(max-width:800px").matches;
 const isTablet = window.matchMedia("(max-width:768px)").matches;
 
 const widthCount = (item) => {
@@ -277,8 +276,6 @@ const sections = $(".section");
 const wrapper = document.querySelector(".wrapper__content");
 const sideMenu = $(".fixed-menu");
 const sideMenuItems = sideMenu.find(".fixed-menu__item");
-const md = new MobileDetect(window.navigator.userAgent);
-const isMobile = md.mobile();
 sections.first().addClass("section_active");
 let inScroll = false;
 
@@ -382,9 +379,12 @@ menuLinks.forEach((el) => {
   });
 });
 
-if (isMobile == null) {
-  return;
-} else {
+if (
+  /Android|webOS|Mobile|iPhone|iPad|iPod|BlackBerry/i.test(
+    navigator.userAgent
+  ) ||
+  /Android|webOS|Mobile|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)
+) {
   $("body").swipe({
     swipe: function (event, direction) {
       const scroller = viewportScroller();
