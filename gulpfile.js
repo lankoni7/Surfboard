@@ -22,7 +22,7 @@ task("copy:html", () => {
 });
 
 task("copy:scripts", () => {
-  return src(`${SRC_PATH}/scripts/*.js`).pipe(dest(`${DIST_PATH}/scripts`));
+  return src(`${SRC_PATH}/*.js`).pipe(dest(`${DIST_PATH}`));
 });
 
 task("copy:img", () => {
@@ -68,7 +68,7 @@ task("watch", () => {
   // watch([
   //   `${SRC_PATH}/*.html`,
   //   `${SRC_PATH}/styles/**/*.scss`,
-  //   `${SRC_PATH}/scripts/*.js`,
+  //   `${SRC_PATH}/*.js`,
   // ]).on("change", reload);
 });
 

@@ -200,6 +200,7 @@ clearBtn.addEventListener("click", () => {
 
 // Surfs
 const isSmallScreen = window.matchMedia("(max-width:800px").matches;
+const isMobileWidth = window.matchMedia("(max-width:768px)").matches;
 
 const widthCount = (item) => {
   let reqWidth = 0;
@@ -217,7 +218,9 @@ const widthCount = (item) => {
     getComputedStyle(surfsContentInside).paddingRight
   );
 
-  if (isSmallScreen) {
+  if (isMobileWidth) {
+    reqWidth = windowWidth - surfsItemsWidth;
+  } else if (isSmallScreen) {
     reqWidth = windowWidth - surfsItemsWidth;
   } else {
     reqWidth = 500;
