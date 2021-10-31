@@ -22,8 +22,11 @@ const optionsIcons = document.querySelectorAll(".options__icon");
 
 optionsIcons.forEach((el) => {
   el.addEventListener("click", (e) => {
-    const optionsIcon = e.currentTarget;
-    optionsIcon.parentElement.classList.toggle("options_active");
+    const optionsIconParent = e.currentTarget.parentElement;
+    optionsIconParent.classList.toggle("options_active");
+    window.addEventListener("orientationchange", () => {
+      optionsIconParent.classList.remove("options_active");
+    });
   });
 });
 
@@ -197,7 +200,6 @@ clearBtn.addEventListener("click", () => {
 
 // Surfs
 const isSmallScreen = window.matchMedia("(max-width:800px").matches;
-const isTablet = window.matchMedia("(max-width:768px)").matches;
 
 const widthCount = (item) => {
   let reqWidth = 0;
@@ -215,9 +217,7 @@ const widthCount = (item) => {
     getComputedStyle(surfsContentInside).paddingRight
   );
 
-  if (isTablet) {
-    reqWidth = windowWidth - surfsItemsWidth;
-  } else if (isSmallScreen) {
+  if (isSmallScreen) {
     reqWidth = windowWidth - surfsItemsWidth;
   } else {
     reqWidth = 500;
@@ -276,6 +276,9 @@ const sections = $(".section");
 const wrapper = document.querySelector(".wrapper__content");
 const sideMenu = $(".fixed-menu");
 const sideMenuItems = sideMenu.find(".fixed-menu__item");
+const isMobileAgent = /Android|webOS|Mobile|iPhone|iPad|iPod|BlackBerry/i.test(
+  navigator.userAgent
+);
 sections.first().addClass("section_active");
 let inScroll = false;
 
@@ -311,7 +314,7 @@ const transformWrapper = (sectionNum) => {
 
   setActiveClass(sideMenuItems, sectionNum, "fixed-menu__item_active");
 
-  if (!isTablet) {
+  if (!isMobileAgent) {
     setTimeout(() => {
       inScroll = false;
     }, transitionOver + touchpadInertiaOver);
@@ -379,12 +382,7 @@ menuLinks.forEach((el) => {
   });
 });
 
-if (
-  /Android|webOS|Mobile|iPhone|iPad|iPod|BlackBerry/i.test(
-    navigator.userAgent
-  ) ||
-  /Android|webOS|Mobile|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)
-) {
+if (isMobileAgent) {
   $("body").swipe({
     swipe: function (event, direction) {
       const scroller = viewportScroller();
